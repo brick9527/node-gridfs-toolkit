@@ -1,0 +1,41 @@
+{
+  "name": "node-gridfs-toolkit",
+  "version": "0.0.1",
+  "description": "The easy way for MongoDB Gridfs",
+  "main": "src/index.js",
+  "dependencies": {
+    "ink": "^3.2.0",
+    "optimist": "^0.6.1",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@ava/babel-preset-stage-4": "^4.0.0",
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7"
+  },
+  "scripts": {
+    "test": "test",
+    "build": "babel src -d dist",
+    "dev": "babel src -d dist && node dist/index.js"
+  },
+  "bin": {
+    "node-gridfs-toolkit": "./bin/node-gridfs-toolkit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brick9527/node-gridfs-toolkit.git"
+  },
+  "keywords": [
+    "Gridfs",
+    "Node",
+    "toolkit"
+  ],
+  "author": "brick9527 <brick9527@foxmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brick9527/node-gridfs-toolkit/issues"
+  },
+  "homepage": "https://github.com/brick9527/node-gridfs-toolkit#readme"
+}
