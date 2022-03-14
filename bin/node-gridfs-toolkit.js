@@ -2,6 +2,5 @@
 const argv = require('optimist').argv;
 
 if (argv.h || argv.help) {
-  console.log('menu');
+  require('../dist/menu.js');
 }
-console.log('hello node-gridfs-toolkit', argv);

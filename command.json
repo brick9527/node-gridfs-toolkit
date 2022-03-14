@@ -1,0 +1,37 @@
+[
+  {
+    "name": "h",
+    "alias": ["help"],
+    "description": "帮助"
+  },
+  {
+    "name": "host",
+    "alias": [],
+    "description": "数据库所在host"
+  },
+  {
+    "name": "port",
+    "alias": [],
+    "description": "数据库开放端口"
+  },
+  {
+    "name": "u",
+    "alias": ["user"],
+    "description": "数据库用户名"
+  },
+  {
+    "name": "p",
+    "alias": ["password"],
+    "description": "数据库用户密码"
+  },
+  {
+    "name": "authenticationDatabase",
+    "alias": [],
+    "description": "用户认证所在数据库名称"
+  },
+  {
+    "name": "d",
+    "alias": ["db", "database"],
+    "description": "数据库名称"
+  }
+]
