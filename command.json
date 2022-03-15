@@ -2,36 +2,50 @@
   {
     "name": "h",
     "alias": ["help"],
-    "description": "帮助"
+    "description": "帮助",
+    "required": false,
+    "category": ["system"]
   },
   {
     "name": "host",
     "alias": [],
-    "description": "数据库所在host"
+    "description": "数据库所在host",
+    "required": false,
+    "category": ["read"]
   },
   {
     "name": "port",
     "alias": [],
-    "description": "数据库开放端口"
+    "description": "数据库开放端口",
+    "required": false,
+    "category": ["read"]
   },
   {
     "name": "u",
     "alias": ["user"],
-    "description": "数据库用户名"
+    "description": "数据库用户名",
+    "required": false,
+    "category": ["read"]
   },
   {
     "name": "p",
     "alias": ["password"],
-    "description": "数据库用户密码"
+    "description": "数据库用户密码",
+    "required": false,
+    "category": ["read"]
   },
   {
     "name": "authenticationDatabase",
     "alias": [],
-    "description": "用户认证所在数据库名称"
+    "description": "用户认证所在数据库名称",
+    "required": false,
+    "category": ["read"]
   },
   {
     "name": "d",
     "alias": ["db", "database"],
-    "description": "数据库名称"
+    "description": "数据库名称",
+    "required": true,
+    "category": ["read"]
   }
 ]
