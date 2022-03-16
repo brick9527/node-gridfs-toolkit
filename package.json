@@ -4,8 +4,11 @@
   "description": "The easy way for MongoDB Gridfs",
   "main": "src/index.js",
   "dependencies": {
+    "gridfs-stream": "^1.1.1",
     "ink": "^3.2.0",
     "joi": "^17.6.0",
+    "meow": "^10.1.2",
+    "mongoose": "^5.13.7",
     "optimist": "^0.6.1",
     "react": "^17.0.2"
   },

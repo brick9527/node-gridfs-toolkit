@@ -7,15 +7,15 @@
     "category": ["system"]
   },
   {
-    "name": "host",
-    "alias": [],
+    "name": "",
+    "alias": ["host"],
     "description": "数据库所在host",
     "required": false,
     "category": ["read"]
   },
   {
-    "name": "port",
-    "alias": [],
+    "name": "",
+    "alias": ["port"],
     "description": "数据库开放端口",
     "required": false,
     "category": ["read"]
@@ -35,8 +35,8 @@
     "category": ["read"]
   },
   {
-    "name": "authenticationDatabase",
-    "alias": [],
+    "name": "",
+    "alias": ["authenticationDatabase"],
     "description": "用户认证所在数据库名称",
     "required": false,
     "category": ["read"]
@@ -46,6 +46,20 @@
     "alias": ["db", "database"],
     "description": "数据库名称",
     "required": true,
+    "category": ["read"]
+  },
+  {
+    "name": "",
+    "alias": ["id"],
+    "description": "数据库数据ID",
+    "required": true,
+    "category": ["read"]
+  },
+  {
+    "name": "o",
+    "alias": ["output"],
+    "description": "数据导出的文件名",
+    "required": false,
     "category": ["read"]
   }
 ]
