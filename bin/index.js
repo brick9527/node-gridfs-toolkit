@@ -2,6 +2,7 @@
 
 const meow = require('meow');
 const test = require('../libs/test');
+const main = require('../libs/main');
 
 const cli = meow(`
 	# 用法
@@ -27,17 +28,17 @@ const cli = meow(`
     help: {
       type: 'boolean',
       alias: 'h',
-      default: false,
+      // default: false,
     },
     host: {
       type: 'string',
       alias: 'H',
-      default: '127.0.0.1'
+      // default: '127.0.0.1'
     },
     port: {
       type: 'number',
       alias: 'P',
-      default: 27017
+      // default: 27017
     },
     user: {
       type: 'string',
@@ -49,7 +50,7 @@ const cli = meow(`
     },
     authenticationDatabase: {
       type: 'string',
-      default: 'admin',
+      // default: 'admin',
     },
     db: {
       type: 'string',
@@ -64,10 +65,9 @@ const cli = meow(`
     },
     pretty: {
       type: 'boolean',
-      default: false,
+      // default: false,
     }
 	}
 });
 
-test(cli);
-// module.exports = cli;
+main(cli);
