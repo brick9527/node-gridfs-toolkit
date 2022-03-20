@@ -26,9 +26,12 @@
     "toolkit"
   ],
   "author": "brick9527 <brick9527@foxmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/brick9527/node-gridfs-toolkit/issues"
   },
-  "homepage": "https://github.com/brick9527/node-gridfs-toolkit#readme"
+  "homepage": "https://github.com/brick9527/node-gridfs-toolkit#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0"
+  }
 }

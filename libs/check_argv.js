@@ -13,7 +13,7 @@ const argvSchema = Joi.object().keys({
   help: Joi.boolean().required().default(false),
 });
 
-module.exports = async function(flags) {
+module.exports = async function (flags) {
   let result;
   try {
     result = await argvSchema.validateAsync(flags);
