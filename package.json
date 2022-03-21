@@ -2,8 +2,9 @@
   "name": "node-gridfs-toolkit",
   "version": "0.0.1",
   "description": "The easy way for MongoDB Gridfs",
-  "main": "src/index.js",
+  "main": "bin/index.js",
   "dependencies": {
+    "chalk": "^4.1.2",
     "gridfs-stream": "^1.1.1",
     "joi": "^17.6.0",
     "lodash": "^4.17.21",
@@ -14,7 +15,7 @@
     "test": "test"
   },
   "bin": {
-    "node-gridfs-toolkit": "./bin/node-gridfs-toolkit.js"
+    "node-gridfs-toolkit": "./bin/index.js"
   },
   "repository": {
     "type": "git",

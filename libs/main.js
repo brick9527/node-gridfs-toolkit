@@ -23,15 +23,17 @@ module.exports = async function(cli) {
   const connectParams = _.pick(argvs, ['host', 'port', 'user', 'password', 'authenticationDatabase', 'db']);
   const mongoClient = await connectMongo(connectParams);
 
+  console.log(Object.keys(mongoClient));
+
   // 查询数据
   let result = null;
 
   // 判断是否需要格式化
   if (argvs.pretty) {
-    const resultObj = await mongoClient.getContent({ _id: mongoose.Types.ObjectId(argvs.id) });
+    const resultObj = await mongoClient.gfs.getContent({ _id: mongoose.Types.ObjectId(argvs.id) });
     result = JSON.stringify(resultObj, null, 2);
   } else {
-    result = await mongoClient.getPlainContent({ _id: mongoose.Types.ObjectId(argvs.id) });
+    result = await mongoClient.gfs.getPlainContent({ _id: mongoose.Types.ObjectId(argvs.id) });
   }
   console.log(result);
 
@@ -41,9 +43,11 @@ module.exports = async function(cli) {
     if (argvs.output.startsWith('/')) {
       targetPath = argvs.output;
     } else if (argvs.output.startsWith('.')){
-      targetPath = path.join(process.pwd(), argvs.output);
+      targetPath = path.join(process.cwd(), argvs.output);
     }
     fs.writeFileSync(targetPath, result, { encoding: 'utf-8', flag: 'w' });
     console.log(`file path: ${targetPath}`);
   }
+
+  process.exit(0);
 };
