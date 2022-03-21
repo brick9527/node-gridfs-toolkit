@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/brick9527/node-gridfs-toolkit/actions/workflows/node.js.yml/badge.svg)](https://github.com/brick9527/node-gridfs-toolkit/actions/workflows/node.js.yml)
+
 # node-gridfs-toolkit
 The easy way for MongoDB Gridfs
 
