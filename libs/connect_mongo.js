@@ -3,8 +3,9 @@ const Grid = require('gridfs-stream');
 
 /**
  * 获取对应源数据内容(同步)
+ * @param {Grid.Grid} gfs - gfs实例
  * @param {any} options - 查询条件
- * @returns {}
+ * @returns {null|String}
  */
 function _getPlainContent(gfs, options) {
   return new Promise(resolve => {
@@ -31,8 +32,9 @@ function _getPlainContent(gfs, options) {
 
 /**
  * 获取对应数据解析后的内容(同步)
+ * @param {Grid.Grid} gfs - gfs实例
  * @param {any} options - 查询条件
- * @returns {}
+ * @returns {undefined|any}
  */
 async function _getContent(gfs, options) {
   const plainContent = await _getPlainContent(gfs, options);

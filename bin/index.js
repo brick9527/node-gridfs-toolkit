@@ -42,17 +42,14 @@ const cli = meow(`
     help: {
       type: 'boolean',
       alias: 'h',
-      // default: false,
     },
     host: {
       type: 'string',
       alias: 'H',
-      // default: '127.0.0.1'
     },
     port: {
       type: 'number',
       alias: 'P',
-      // default: 27017
     },
     user: {
       type: 'string',
@@ -64,7 +61,6 @@ const cli = meow(`
     },
     authenticationDatabase: {
       type: 'string',
-      // default: 'admin',
     },
     db: {
       type: 'string',
@@ -79,7 +75,6 @@ const cli = meow(`
     },
     pretty: {
       type: 'boolean',
-      // default: false,
     }
 	}
 });

@@ -13,6 +13,11 @@ const argvSchema = Joi.object().keys({
   help: Joi.boolean().required().default(false),
 });
 
+/**
+ * 检查参数, 如果参数不合规则退出
+ * @param {any} flags - 参数列表
+ * @returns 
+ */
 module.exports = async function (flags) {
   let result;
   try {
