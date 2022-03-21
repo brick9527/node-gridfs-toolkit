@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 const meow = require('meow');
 const chalk = require('chalk');
@@ -75,8 +76,8 @@ const cli = meow(`
     },
     pretty: {
       type: 'boolean',
-    }
-	}
+    },
+	},
 });
 
 main(cli);

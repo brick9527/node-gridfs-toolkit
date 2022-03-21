@@ -1,3 +1,5 @@
+'use strict';
+
 const _ = require('lodash');
 const mongoose = require('mongoose');
 const fs = require('fs');
@@ -20,7 +22,14 @@ module.exports = async function(cli) {
   console.log(argvs);
 
   // 连接mongo
-  const connectParams = _.pick(argvs, ['host', 'port', 'user', 'password', 'authenticationDatabase', 'db']);
+  const connectParams = _.pick(argvs, [
+    'host',
+    'port',
+    'user',
+    'password',
+    'authenticationDatabase',
+    'db',
+  ]);
   const mongoClient = await connectMongo(connectParams);
 
   console.log(Object.keys(mongoClient));

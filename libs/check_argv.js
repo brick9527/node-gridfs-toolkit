@@ -1,3 +1,5 @@
+'use strict';
+
 const Joi = require('joi');
 
 const argvSchema = Joi.object().keys({
@@ -27,4 +29,4 @@ module.exports = async function (flags) {
     process.exit(-1);
   }
   return result;
-}
+};

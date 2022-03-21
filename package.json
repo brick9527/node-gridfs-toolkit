@@ -12,7 +12,8 @@
     "mongoose": "^5.13.7"
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "lint": "eslint libs bin"
   },
   "bin": {
     "node-gridfs-toolkit": "./bin/index.js"

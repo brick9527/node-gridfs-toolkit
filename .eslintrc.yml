@@ -5,4 +5,65 @@ env:
 extends: 'eslint:recommended'
 parserOptions:
   ecmaVersion: 12
-rules: {}
+rules:
+  # 分号
+  semi: ['error', 'always']
+  # 箭头函数
+  arrow-parens: ['error', 'as-needed']
+  quotes: ['warn', 'single']
+  # 逗号
+  comma-dangle: ['warn', 'always-multiline']
+  # 语句遵循大括号规则 https://eslint.bootcss.com/docs/rules/curly
+  curly: 'error'
+  # 强制使用点号 https://eslint.bootcss.com/docs/rules/dot-notation
+  dot-notation: 'error'
+  # 使用===和!== https://eslint.bootcss.com/docs/rules/eqeqeq
+  eqeqeq: "error"
+  # 禁止扩展原生对象 https://eslint.bootcss.com/docs/rules/no-extend-native
+  no-extend-native: "error"
+  # 禁用Function构造函数 https://eslint.bootcss.com/docs/rules/no-new-func
+  no-new-func: "error"
+  # 禁止原始包装实例 https://eslint.bootcss.com/docs/rules/no-new-wrappers
+  no-new-wrappers: "error"
+  # 禁止对函数参数再赋值 https://eslint.bootcss.com/docs/rules/no-param-reassign
+  no-param-reassign: "error"
+  # 禁用不必要的'return await' https://eslint.bootcss.com/docs/rules/no-return-await
+  no-return-await: 'error'
+  # 禁用自身比较 https://eslint.bootcss.com/docs/rules/no-self-compare
+  no-self-compare: "error"
+  # 限制可以被抛出的异常 https://eslint.bootcss.com/docs/rules/no-throw-literal
+  no-throw-literal: "error"
+  # 禁用一成不变的循环条件 https://eslint.bootcss.com/docs/rules/no-unmodified-loop-condition
+  no-unmodified-loop-condition: 'error'
+  # 禁用不必要的 .call() 和 .apply() https://eslint.bootcss.com/docs/rules/no-useless-call
+  no-useless-call: "error"
+  # 禁用void https://eslint.bootcss.com/docs/rules/no-void
+  no-void: "error"
+  # parseInt要求必须有基数 https://eslint.bootcss.com/docs/rules/radix
+  radix: "error"
+  # 禁止使用不带 await 表达式的 async 函数 https://eslint.bootcss.com/docs/rules/require-await
+  require-await: "error"
+  # 强制在RegExp上使用'u'标志 https://eslint.bootcss.com/docs/rules/require-unicode-regexp
+  require-unicode-regexp: 'error'
+  # 要求将变量声明放在它们作用域的顶部 https://eslint.bootcss.com/docs/rules/vars-on-top
+  vars-on-top: "error"
+  # 需要把立即执行的函数包裹起来 https://eslint.bootcss.com/docs/rules/wrap-iife
+  wrap-iife: ["error", "inside"]
+  # 使用严格模式指令 https://eslint.bootcss.com/docs/rules/strict
+  strict: ["error", "global"]
+  # 禁止变量声明覆盖外层作用域的变量 https://eslint.bootcss.com/docs/rules/no-shadow
+  no-shadow: "error"
+  # 强制在模块顶部调用'require()'' https://eslint.bootcss.com/docs/rules/global-require
+  global-require: "error"
+  # 禁止'require'调用与普通变量声明混合使用 https://eslint.bootcss.com/docs/rules/no-mixed-requires
+  no-mixed-requires: "error"
+  # 不允许'new require' https://eslint.bootcss.com/docs/rules/no-new-require
+  no-new-require: "error"
+  # 当使用'_dirname'和'_filename'时不允许字符串拼接 https://eslint.bootcss.com/docs/rules/no-path-concat
+  no-path-concat: "error"
+  # 在数组开括号后和闭括号前强制换行 https://eslint.bootcss.com/docs/rules/array-bracket-newline
+  array-bracket-newline: ['warn', { 'multiline': true, 'minItems': 3 }]
+  # 强制在括号内使用空格 https://eslint.bootcss.com/docs/rules/array-bracket-spacing
+  array-bracket-spacing: ['warn', 'always', { 'singleValue': false, 'objectsInArrays': false, 'arraysInArrays': false }]
+  
+
