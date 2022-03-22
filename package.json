@@ -13,10 +13,12 @@
   },
   "scripts": {
     "test": "test",
-    "lint": "eslint libs bin"
+    "lint": "eslint libs bin",
+    "commitmsg": "validate-commit-msg"
   },
   "bin": {
-    "node-gridfs-toolkit": "./bin/index.js"
+    "node-gridfs-toolkit": "./bin/index.js",
+    "ngt": "./bin/index.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,8 @@
   "homepage": "https://github.com/brick9527/node-gridfs-toolkit#readme",
   "devDependencies": {
     "eslint": "^7.32.0",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "prettier-eslint": "^13.0.0",
+    "validate-commit-msg": "^2.14.0"
   }
 }
