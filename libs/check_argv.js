@@ -11,7 +11,6 @@ const argvSchema = Joi.object().keys({
   db: Joi.string().required(),
   id: Joi.string().required(),
   output: Joi.string().optional(),
-  pretty: Joi.boolean().required().default(false),
   help: Joi.boolean().required().default(false),
 });
 

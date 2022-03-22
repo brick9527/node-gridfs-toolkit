@@ -3,11 +3,11 @@
 const _ = require('lodash');
 const mongoose = require('mongoose');
 const fs = require('fs');
-const path = require('path');
 
 const checkShowHelp = require('./check_show_help'); 
 const checkArgv = require('./check_argv');
 const connectMongo = require('./connect_mongo');
+const getTargetFilePath = require('./get_target_file_path');
 
 module.exports = async function(cli) {
   // 任何参数都不传, 显示帮助菜单
@@ -34,29 +34,27 @@ module.exports = async function(cli) {
 
   console.log(Object.keys(mongoClient));
 
-  // 查询数据
-  let result = null;
 
-  // 判断是否需要格式化
-  if (argvs.pretty) {
-    const resultObj = await mongoClient.gfs.getContent({ _id: mongoose.Types.ObjectId(argvs.id) });
-    result = JSON.stringify(resultObj, null, 2);
-  } else {
-    result = await mongoClient.gfs.getPlainContent({ _id: mongoose.Types.ObjectId(argvs.id) });
-  }
-  console.log(result);
+  // 将获取内容输出到控制台
+  const contentStream = mongoClient.gfs.getStream({ _id: mongoose.Types.ObjectId(argvs.id) });
 
-  // 如果需要保存到文件
+  // 判断是否需要写入文件
+  let targetFilePath;
   if (argvs.output) {
-    let targetPath = argvs.output;
-    if (argvs.output.startsWith('/')) {
-      targetPath = argvs.output;
-    } else if (argvs.output.startsWith('.')){
-      targetPath = path.join(process.cwd(), argvs.output);
-    }
-    fs.writeFileSync(targetPath, result, { encoding: 'utf-8', flag: 'w' });
-    console.log(`file path: ${targetPath}`);
+    targetFilePath = getTargetFilePath(argvs.output);
+    const writeTargetFilePathStream = fs.createWriteStream(targetFilePath, { encoding: 'utf-8', flags: 'w+' });
+    contentStream.pipe(writeTargetFilePathStream);
   }
 
-  process.exit(0);
+  contentStream.pipe(process.stdout);
+
+  contentStream.on('err', err => {
+      throw new Error(err);
+    });
+  contentStream.on('end', () => {
+      if (argvs.output) {
+        console.log(`file path: ${targetFilePath}`);
+        process.exit(0);
+      }
+    });
 };
