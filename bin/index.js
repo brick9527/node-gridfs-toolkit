@@ -19,7 +19,6 @@ const cli = meow(`
     --db, -d                    查询的数据库
     --id                        查询的数据_id
     --output, -o                查询结果保存文件名
-    --pretty                    格式化输出
     --help, -h                  帮助
     --version                   查看node-gridfs-toolkit版本号
 
@@ -73,9 +72,6 @@ const cli = meow(`
     output: {
       type: 'string',
       alias: 'o',
-    },
-    pretty: {
-      type: 'boolean',
     },
 	},
 });

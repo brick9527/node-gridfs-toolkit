@@ -10,44 +10,48 @@ const Grid = require('gridfs-stream');
  * @returns {null|String}
  */
 function _getPlainContent(gfs, options) {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const readStream = gfs.createReadStream(options);
-    const chunks = [];
 
-    readStream.on('data', data => {
-      chunks.push(data);
-    });
+    readStream.pipe(process.stdout);
 
     readStream.on('error', err => {
-      console.log(err);
-      resolve(null);
+      reject(err);
     });
 
     readStream.on('close', () => {
-      const content = Buffer.concat(chunks).toString();
-      console.log('Gridfs content = ', JSON.stringify(content));
-
-      resolve(content);
+      resolve({ status: true });
     });
   });
 }
 
 /**
- * 获取对应数据解析后的内容(同步)
+ * 获取对应源数据内容(流)
  * @param {Grid.Grid} gfs - gfs实例
  * @param {any} options - 查询条件
  * @returns {undefined|any}
  */
-async function _getContent(gfs, options) {
-  const plainContent = await _getPlainContent(gfs, options);
-  let data;
-  try {
-    data = JSON.parse(plainContent);
-  } catch (err) {
-    console.log(err);
-  }
+// async function _getContent(gfs, options) {
+//   const plainContent = await _getPlainContent(gfs, options);
+//   let data;
+//   try {
+//     data = JSON.parse(plainContent);
+//   } catch (err) {
+//     console.log(err);
+//   }
 
-  return data;
+//   return data;
+// }
+
+/**
+ * 获取对应数据解析后的内容
+ * @param {Grid.Grid} gfs - gfs实例
+ * @param {any} options - 查询条件
+ * @returns {undefined|any}
+ */
+function _getStream(gfs, options) {
+  const readStream = gfs.createReadStream(options);
+  return readStream;
 }
 
 async function connect(params) {
@@ -87,9 +91,10 @@ async function connect(params) {
     return _getPlainContent(client.gfs, options);
   };
 
-  client.gfs.getContent = function (options) {
-    return _getContent(client.gfs, options);
+  client.gfs.getStream = function (options) {
+    return _getStream(client.gfs, options);
   };
+
   return client;
 }
 
